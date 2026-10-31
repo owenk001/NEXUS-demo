@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a12">
+  <meta name="description" content="Meet NEXUS, a local-first workspace for connected projects, records, workflows, and planning.">
+  <title>NEXUS — Your work, connected</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090a12;--panel:#111522;--line:#ffffff20;--ink:#f5f6ff;--muted:#a7aec2;--cyan:#62ddff;--violet:#9c83ff;--gradient:linear-gradient(110deg,#7357d6,#6058bd 58%,#4386be)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{min-width:320px;margin:0;background:radial-gradient(ellipse at 50% -18%,#302c5a 0,transparent 48%),var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI",system-ui,sans-serif}
+    a{color:inherit}
+    .wrap{width:min(1080px,calc(100% - 40px));margin-inline:auto}
+    header{display:flex;align-items:center;justify-content:space-between;min-height:74px;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-size:14px;font-weight:850;letter-spacing:.22em}
+    .mark{display:grid;width:34px;height:34px;place-items:center;border:1px solid #62ddff55;border-radius:11px;background:#62ddff10;color:var(--cyan);font-size:18px}
+    nav{display:flex;align-items:center;gap:22px}
+    nav a,.footer a{color:#c6cada;text-decoration:none;font-size:13px}
+    nav a:hover,.footer a:hover{color:#fff}
+    .button{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:0 18px;border:1px solid #9c83ff70;border-radius:11px;background:var(--gradient);box-shadow:0 8px 26px #6854d633;color:white;text-decoration:none;font-size:13px;font-weight:750}
+    .button.secondary{border-color:var(--line);background:#ffffff08;box-shadow:none}
+    a:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:48px;min-height:590px;padding-block:70px}
+    .eyebrow{color:#9cecff;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    h1{max-width:680px;margin:16px 0;font-size:clamp(48px,7vw,78px);font-weight:650;letter-spacing:-.065em;line-height:1}
+    h1 span{background:linear-gradient(105deg,#71e6ff,#9a8bff 56%,#f0a3f4);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{max-width:610px;color:#c0c5d5;font-size:18px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .note{margin-top:16px;color:#929ab0;font-size:12px}
+    .visual{position:relative;display:grid;min-height:330px;place-items:center}
+    .orb{display:grid;width:min(30vw,290px);aspect-ratio:1;place-items:center;border:1px solid #8bcfff35;border-radius:50%;background:radial-gradient(circle at 34% 30%,#66dfff45,transparent 37%),radial-gradient(circle at 68% 68%,#9c65ff42,transparent 40%),#11142a99;box-shadow:inset 0 0 70px #6c63ff1c,0 0 80px #4670ff1e}
+    .orb span{display:grid;width:98px;height:98px;place-items:center;border:2px solid #71e6ff;border-radius:28px;color:#71e6ff;font-size:46px;font-weight:300;transform:rotate(30deg);filter:drop-shadow(0 0 20px #65deff80)}
+    .orb span b{transform:rotate(-30deg)}
+    .signal{position:absolute;padding:9px 13px;border:1px solid var(--line);border-radius:11px;background:#10131ddd;box-shadow:0 16px 40px #0005;color:#dce1f2;font-size:12px}
+    .signal.one{top:12%;right:0}.signal.two{bottom:17%;left:0}.signal.three{right:1%;bottom:8%}
+    section{padding-block:65px;border-top:1px solid var(--line)}
+    .section-heading{max-width:660px;margin-bottom:26px}
+    h2{margin:0 0 9px;font-size:clamp(28px,4vw,42px);letter-spacing:-.045em;line-height:1.15}
+    .section-heading p,.feature p,.callout p{margin:0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .feature{min-height:164px;padding:21px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#ffffff0b,#ffffff03)}
+    .icon{display:grid;width:34px;height:34px;margin-bottom:15px;place-items:center;border:1px solid #73dfff45;border-radius:10px;background:#53dfff12;color:#83e8ff;font-size:16px}
+    h3{margin:0 0 6px;font-size:15px}
+    .feature p{font-size:13px;line-height:1.65}
+    .callout{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:25px;border:1px solid #70dfff25;border-radius:17px;background:linear-gradient(105deg,#1d2550aa,#171327aa)}
+    .callout h2{font-size:22px}
+    .callout p{max-width:700px;font-size:14px}
+    .footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 0 35px;border-top:1px solid var(--line)}
+    .footer small{color:#929ab0;font-size:12px}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;gap:10px;min-height:unset;padding-block:58px}.visual{min-height:280px}.orb{width:min(62vw,270px)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.wrap{width:calc(100% - 32px)}header{min-height:64px}nav{gap:12px}nav a:not(.button){display:none}nav .button{min-height:38px;padding-inline:12px;font-size:12px}.brand{font-size:13px}.hero{padding-block:46px 30px}.lead{font-size:16px}.actions .button{width:100%}.visual{min-height:260px}.signal{padding:8px 9px;font-size:10px}section{padding-block:48px}.grid{grid-template-columns:1fr}.feature{min-height:unset;padding:18px}.callout{align-items:flex-start;flex-direction:column;padding:20px}.footer{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="#top" aria-label="NEXUS home"><span class="mark" aria-hidden="true">N</span>NEXUS</a>
+    <nav aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a class="button secondary" href="https://github.com/owenk001/NEXUS">Project repository</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">A connected workspace</span>
+        <h1 id="hero-title">Your work,<br><span>in one place.</span></h1>
+        <p class="lead">Bring projects, records, workflows, and everyday planning into one thoughtful workspace—designed to run on your own computer.</p>
+        <div class="actions">
+          <a class="button" href="#features">Explore NEXUS</a>
+          <a class="button secondary" href="https://github.com/owenk001/NEXUS">View the project</a>
+        </div>
+        <p class="note">Local-first by design. Your workspace stays on the computer running NEXUS.</p>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <div class="orb"><span><b>N</b></span></div>
+        <div class="signal one">Projects &amp; teams</div>
+        <div class="signal two">Records &amp; ideas</div>
+        <div class="signal three">Workflows</div>
+      </div>
+    </section>
+    <section id="features">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2>Less switching. More momentum.</h2>
+          <p>Keep the pieces of your work connected, while staying in control of your own workspace.</p>
+        </div>
+        <div class="grid">
+          <article class="feature"><span class="icon" aria-hidden="true">↗</span><h3>Projects that connect</h3><p>Coordinate owners, tasks, handoffs, reviews, references, and shared project files.</p></article>
+          <article class="feature"><span class="icon" aria-hidden="true">▤</span><h3>Records you can keep</h3><p>Collect notes, workspace state, and supported assets in your local NEXUS installation.</p></article>
+          <article class="feature"><span class="icon" aria-hidden="true">◇</span><h3>Workflows with structure</h3><p>Explore practical workflow guides and use the visual Automation Studio to organize steps.</p></article>
+          <article class="feature"><span class="icon" aria-hidden="true">◷</span><h3>Planning in context</h3><p>Bring productivity, finance, and creative planning tools into the same workspace.</p></article>
+          <article class="feature"><span class="icon" aria-hidden="true">⌘</span><h3>Assistance on your terms</h3><p>Connect an AI provider only when you choose; review and confirm supported changes.</p></article>
+          <article class="feature"><span class="icon" aria-hidden="true">⌂</span><h3>Local-first setup</h3><p>NEXUS runs on your computer and stores workspace data locally; it is not a hosted cloud service.</p></article>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap callout">
+        <div><h2>A live product preview</h2><p>This public page showcases NEXUS. The full application requires its local Node.js server and is not running as a hosted service.</p></div>
+        <a class="button secondary" href="https://github.com/owenk001/NEXUS">Project details</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap">
+    <small>© NEXUS · Local-first workspace</small>
+    <a href="https://github.com/owenk001/NEXUS">NEXUS on GitHub</a>
+  </footer>
+</body>
+</html>
